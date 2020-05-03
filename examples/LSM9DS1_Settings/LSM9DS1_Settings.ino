@@ -187,14 +187,14 @@ uint16_t initLSM9DS1()
   setupMag(); // Set up magnetometer parameters
   setupTemperature(); // Set up temp sensor parameter
   
-  return imu.begin(LSM9DS1_AG, LSM9DS1_M, Wire); // for SPI use beginSPI()
+  return imu.begin(LSM9DS1_AG, LSM9DS1_M, Wire1); // for SPI use beginSPI()
 }
 
 void setup() 
 {
   Serial.begin(115200);
 
-  Wire.begin();
+  Wire1.begin();
   
   Serial.println("Initializing the LSM9DS1");
   uint16_t status = initLSM9DS1();
