@@ -105,7 +105,7 @@ uint16_t configureIMU()
   
   // Call imu.begin() to initialize the sensor and instill
   // it with our new settings.
-  return imu.begin(LSM9DS1_AG_ADDR(1), LSM9DS1_M_ADDR(1), Wire); // set addresses and wire port
+  return imu.begin(LSM9DS1_AG_ADDR(1), LSM9DS1_M_ADDR(1), Wire1); // set addresses and wire port
 }
 
 void configureLSM9DS1Interrupts()
@@ -190,7 +190,7 @@ void setup()
   // It is active high and always turned on.
   pinMode(RDYM_PIN, INPUT);
 
-  Wire.begin();
+  Wire1.begin();
 
   // Turn on the IMU with configureIMU() (defined above)
   // check the return status of imu.begin() to make sure
