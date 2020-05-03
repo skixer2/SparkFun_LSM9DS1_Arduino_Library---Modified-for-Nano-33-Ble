@@ -94,9 +94,9 @@ void setup()
 {
   Serial.begin(115200);
 
-  Wire.begin();
+  Wire1.begin();
 
-  if (imu.begin() == false) // with no arguments, this uses default addresses (AG:0x6B, M:0x1E) and i2c port (Wire).
+  if (imu.begin(LSM9DS1_AG_ADDR(1), LSM9DS1_M_ADDR(1), Wire1) == false) // with no arguments, this uses default addresses (AG:0x6B, M:0x1E) and i2c port (Wire).
   {
     Serial.println("Failed to communicate with LSM9DS1.");
     Serial.println("Double-check wiring.");
