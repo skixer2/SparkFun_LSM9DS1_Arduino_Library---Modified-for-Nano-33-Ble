@@ -1137,6 +1137,8 @@ void LSM9DS1::initSPI()
 	digitalWrite(_mAddress, HIGH);
 	
 	SPI.begin();
+
+#ifndef ARDUINO_ARDUINO_NANO33BLE
 	// Maximum SPI frequency is 10MHz, could divide by 2 here:
 	SPI.setClockDivider(SPI_CLOCK_DIV2);
 	// Data is read and written MSb first.
@@ -1144,6 +1146,7 @@ void LSM9DS1::initSPI()
 	// Data is captured on rising edge of clock (CPHA = 0)
 	// Base value of the clock is HIGH (CPOL = 1)
 	SPI.setDataMode(SPI_MODE0);
+#endif
 }
 
 void LSM9DS1::SPIwriteByte(uint8_t csPin, uint8_t subAddress, uint8_t data)
